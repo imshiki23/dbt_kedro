@@ -1,0 +1,6 @@
+duckdb_project:
+  outputs:
+    dev:
+      type: duckdb
+      target: dev
+      path: '/workspaces/codeBase/dbt_kedro_example/dbt/duckDBtest.duckdb'

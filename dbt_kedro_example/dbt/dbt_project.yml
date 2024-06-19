@@ -1,0 +1,65 @@
+name: duckdb_project
+config-version: 2
+
+profile: duckdb_project
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"] 
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "duckdb"
+
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+models:
+  duckdb_project:
+    +materialized: table
+
+vars:
+  duckdb_schema: dbt_duckdb
+
+quoting:
+  database: false
+  schema: false
+  identifier: false
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ["duckdb_project", "dbt_utils"]
+
+seeds:
+  duckdb_project:
+    companies:
+      +column_types:
+        company_rating: varchar(10)
+    reviews:
+      +column_types:
+        shuttle_id: integer
+        review_scores_rating: float
+        review_scores_comfort: float
+        review_scores_amenities: float
+        review_scores_trip: float
+        review_scores_crew: float
+        review_scores_location: float
+        review_scores_price: float
+        number_of_reviews: integer
+        reviews_per_month: float
+    shuttles:
+      +column_types:
+        id: integer
+        shuttle_location: varchar(25)
+        shuttle_type: varchar(25)
+        engine_type: varchar(25)
+        engine_vendor: varchar(35)
+        engines: integer
+        passenger_capacity: integer
+        cancellation_policy: varchar(25)
+        crew: integer
+        d_check_complete: varchar(2)
+        moon_clearance_complete: varchar(2)
+        price: varchar(10)
+        company_id: integer
