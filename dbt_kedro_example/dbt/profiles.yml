@@ -3,4 +3,4 @@ duckdb_project:
     dev:
       type: duckdb
       target: dev
-      path: '/workspaces/codeBase/dbt_kedro_example/dbt/duckDBtest.duckdb'
+      path: '/workspaces/dbt_kedro/dbt_kedro_example/dbt/duckDBtest.duckdb'

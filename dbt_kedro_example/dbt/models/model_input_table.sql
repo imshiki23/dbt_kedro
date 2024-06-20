@@ -1,6 +1,6 @@
 {{ config(
   pre_hook="DROP TABLE IF EXISTS duckDBtest.main.model_input_table;",
-  post_hook = "COPY duckDBtest.main.model_input_table TO '/workspaces/codeBase/dbt_kedro_example/data/01_raw/model_input_table.csv' (HEADER, DELIMITER ',');"
+  post_hook = "COPY duckDBtest.main.model_input_table TO '/workspaces/dbt_kedro/dbt_kedro_example/data/01_raw/model_input_table.csv' (HEADER, DELIMITER ',');"
 ) }}
 
 SELECT 
